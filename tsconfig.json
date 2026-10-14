@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "strict": true,
+        "lib": ["ES2022", "DOM"],
+        "types": ["firefox-webext-browser"],
+        "noEmit": true,
+        "skipLibCheck": true
+    },
+    "include": ["extension/**/*.ts", "tests/**/*.ts", "vitest.config.ts"]
+}
