@@ -77,6 +77,7 @@ jobs:
                   test -n "$signed"
                   mv "$signed" "dist/permanent-tab-actions-$VERSION.xpi"
                   unzip -t "dist/permanent-tab-actions-$VERSION.xpi" >/dev/null
+                  unzip -l "dist/permanent-tab-actions-$VERSION.xpi" | grep -q 'META-INF/mozilla.rsa'
                   test "$(unzip -p "dist/permanent-tab-actions-$VERSION.xpi" manifest.json | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>process.stdout.write(JSON.parse(s).version))")" = "$VERSION"
             - name: Publish update manifest
               env:
